@@ -1,0 +1,228 @@
+GAS LISTING /tmp/ccZVr0KG.s 			page 1
+
+
+   1              		.file	"test.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.section	.rodata
+   5              	.LC0:
+   6 0000 49747320 		.string	"Its an a!"
+   6      616E2061 
+   6      2100
+   7              	.LC1:
+   8 000a 49747320 		.string	"Its a c!"
+   8      61206321 
+   8      00
+   9              	.LC2:
+  10 0013 49742773 		.string	"It's an f!!"
+  10      20616E20 
+  10      66212100 
+  11              	.LC3:
+  12 001f 54697320 		.string	"Tis a d!"
+  12      61206421 
+  12      00
+  13              	.LC4:
+  14 0028 6875683F 		.string	"huh?"
+  14      00
+  15              		.text
+  16              		.globl	main
+  18              	main:
+  19              	.LFB0:
+  20              		.file 1 "test.c"
+   1:test.c        **** #include <stdio.h>
+   2:test.c        **** 
+   3:test.c        **** int main(int argc, char** argv)
+   4:test.c        **** {
+  21              		.loc 1 4 0
+  22              		.cfi_startproc
+  23 0000 55       		pushl	%ebp
+  24              	.LCFI0:
+  25              		.cfi_def_cfa_offset 8
+  26              		.cfi_offset 5, -8
+  27 0001 89E5     		movl	%esp, %ebp
+  28              	.LCFI1:
+  29              		.cfi_def_cfa_register 5
+  30 0003 83E4F0   		andl	$-16, %esp
+  31 0006 83EC20   		subl	$32, %esp
+   5:test.c        **** // 	int age = 10
+   6:test.c        **** // ;	int height = 20;
+   7:test.c        **** // 	char name[] = "Jon";
+   8:test.c        **** // 	char initial = 'P';
+   9:test.c        **** //     char full_name[] = {
+  10:test.c        **** //         'Z', 'e', 'd',
+  11:test.c        **** //          ' ', 'A', '.', ' ',
+  12:test.c        **** //          'S', 'h', 'a', 'w'
+  13:test.c        **** //     };
+  14:test.c        **** 
+  15:test.c        **** // 	printf("%d\n", sizeof(int));
+  16:test.c        **** // 	printf("I am %d years old\n", height);
+  17:test.c        **** // 	printf("%s\n", full_name);
+  18:test.c        **** 
+GAS LISTING /tmp/ccZVr0KG.s 			page 2
+
+
+  19:test.c        **** 	char item = argv[1][0];
+  32              		.loc 1 19 0
+  33 0009 8B450C   		movl	12(%ebp), %eax
+  34 000c 83C004   		addl	$4, %eax
+  35 000f 8B00     		movl	(%eax), %eax
+  36 0011 0FB600   		movzbl	(%eax), %eax
+  37 0014 8844241F 		movb	%al, 31(%esp)
+  20:test.c        **** 
+  21:test.c        **** 	switch (item)
+  38              		.loc 1 21 0
+  39 0018 0FBE4424 		movsbl	31(%esp), %eax
+  39      1F
+  40 001d 83E861   		subl	$97, %eax
+  41 0020 83F819   		cmpl	$25, %eax
+  42 0023 775D     		ja	.L2
+  43 0025 8B048530 		movl	.L9(,%eax,4), %eax
+  43      000000
+  44 002c FFE0     		jmp	*%eax
+  45              		.section	.rodata
+  46 002d 000000   		.align 4
+  47              		.align 4
+  48              	.L9:
+  49 0030 2E000000 		.long	.L3
+  50 0034 82000000 		.long	.L2
+  51 0038 3C000000 		.long	.L4
+  52 003c 82000000 		.long	.L2
+  53 0040 82000000 		.long	.L2
+  54 0044 82000000 		.long	.L2
+  55 0048 4A000000 		.long	.L5
+  56 004c 82000000 		.long	.L2
+  57 0050 82000000 		.long	.L2
+  58 0054 82000000 		.long	.L2
+  59 0058 82000000 		.long	.L2
+  60 005c 82000000 		.long	.L2
+  61 0060 58000000 		.long	.L6
+  62 0064 82000000 		.long	.L2
+  63 0068 82000000 		.long	.L2
+  64 006c 66000000 		.long	.L7
+  65 0070 82000000 		.long	.L2
+  66 0074 82000000 		.long	.L2
+  67 0078 82000000 		.long	.L2
+  68 007c 82000000 		.long	.L2
+  69 0080 82000000 		.long	.L2
+  70 0084 82000000 		.long	.L2
+  71 0088 82000000 		.long	.L2
+  72 008c 82000000 		.long	.L2
+  73 0090 82000000 		.long	.L2
+  74 0094 74000000 		.long	.L8
+  75              		.text
+  76              	.L3:
+  22:test.c        **** 	{
+  23:test.c        **** 		case 'a':
+  24:test.c        **** 			printf("Its an a!\n");
+  77              		.loc 1 24 0
+  78 002e C7042400 		movl	$.LC0, (%esp)
+  78      000000
+  79 0035 E8FCFFFF 		call	puts
+GAS LISTING /tmp/ccZVr0KG.s 			page 3
+
+
+  79      FF
+  25:test.c        **** 			break;
+  80              		.loc 1 25 0
+  81 003a EB53     		jmp	.L10
+  82              	.L4:
+  26:test.c        **** 
+  27:test.c        **** 		case 'c':
+  28:test.c        **** 			printf("Its a c!\n");
+  83              		.loc 1 28 0
+  84 003c C704240A 		movl	$.LC1, (%esp)
+  84      000000
+  85 0043 E8FCFFFF 		call	puts
+  85      FF
+  29:test.c        **** 			break;
+  86              		.loc 1 29 0
+  87 0048 EB45     		jmp	.L10
+  88              	.L5:
+  30:test.c        **** 
+  31:test.c        **** 		case 'g':
+  32:test.c        **** 			printf("It's an f!!\n");
+  89              		.loc 1 32 0
+  90 004a C7042413 		movl	$.LC2, (%esp)
+  90      000000
+  91 0051 E8FCFFFF 		call	puts
+  91      FF
+  33:test.c        **** 			break;
+  92              		.loc 1 33 0
+  93 0056 EB37     		jmp	.L10
+  94              	.L6:
+  34:test.c        **** 
+  35:test.c        **** 		case 'm':
+  36:test.c        **** 			printf("Tis a d!\n");
+  95              		.loc 1 36 0
+  96 0058 C704241F 		movl	$.LC3, (%esp)
+  96      000000
+  97 005f E8FCFFFF 		call	puts
+  97      FF
+  37:test.c        **** 			break;
+  98              		.loc 1 37 0
+  99 0064 EB29     		jmp	.L10
+ 100              	.L7:
+  38:test.c        **** 
+  39:test.c        **** 		case 'p':
+  40:test.c        **** 			printf("Tis a d!\n");
+ 101              		.loc 1 40 0
+ 102 0066 C704241F 		movl	$.LC3, (%esp)
+ 102      000000
+ 103 006d E8FCFFFF 		call	puts
+ 103      FF
+  41:test.c        **** 			break;
+ 104              		.loc 1 41 0
+ 105 0072 EB1B     		jmp	.L10
+ 106              	.L8:
+  42:test.c        **** 
+  43:test.c        **** 		case 'z':
+  44:test.c        **** 			printf("Tis a d!\n");
+ 107              		.loc 1 44 0
+GAS LISTING /tmp/ccZVr0KG.s 			page 4
+
+
+ 108 0074 C704241F 		movl	$.LC3, (%esp)
+ 108      000000
+ 109 007b E8FCFFFF 		call	puts
+ 109      FF
+  45:test.c        **** 			break;
+ 110              		.loc 1 45 0
+ 111 0080 EB0D     		jmp	.L10
+ 112              	.L2:
+  46:test.c        **** 
+  47:test.c        **** 		default:
+  48:test.c        **** 			printf("huh?\n");
+ 113              		.loc 1 48 0
+ 114 0082 C7042428 		movl	$.LC4, (%esp)
+ 114      000000
+ 115 0089 E8FCFFFF 		call	puts
+ 115      FF
+  49:test.c        **** 			break;
+ 116              		.loc 1 49 0
+ 117 008e 90       		nop
+ 118              	.L10:
+  50:test.c        **** 	}
+  51:test.c        **** 
+  52:test.c        **** 	return 0;
+ 119              		.loc 1 52 0
+ 120 008f B8000000 		movl	$0, %eax
+ 120      00
+  53:test.c        **** }...
+ 121              		.loc 1 53 0
+ 122 0094 C9       		leave
+ 123              		.cfi_restore 5
+ 124              	.LCFI2:
+ 125              		.cfi_def_cfa 4, 4
+ 126 0095 C3       		ret
+ 127              		.cfi_endproc
+ 128              	.LFE0:
+ 130              	.Letext0:
+GAS LISTING /tmp/ccZVr0KG.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 test.c
+     /tmp/ccZVr0KG.s:18     .text:0000000000000000 main
+
+UNDEFINED SYMBOLS
+puts
